@@ -1,0 +1,66 @@
+warning: variable `total_read` is assigned to, but never used
+  --> crates/cybou-erasure/src/lib.rs:99:9
+   |
+99 |     let mut total_read = 0;
+   |         ^^^^^^^^^^^^^^
+   |
+   = note: consider using `_total_read` instead
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `total_read` is never read
+   --> crates/cybou-erasure/src/lib.rs:115:9
+    |
+115 |         total_read += bytes_read;
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+    = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+   Compiling cybou-node v0.1.0 (/Users/cybou/Documents/cybou/crates/cybou-node)
+warning: `cybou-erasure` (lib) generated 2 warnings
+warning: method `record_wallet_operation` is never used
+  --> crates/cybou-node/src/metrics.rs:34:12
+   |
+ 7 | impl CybouMetrics {
+   | ----------------- method in this implementation
+...
+34 |     pub fn record_wallet_operation(&self, _operation: &str, _success: bo...
+   |            ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `cellule_id` is never read
+  --> crates/cybou-node/src/state.rs:92:16
+   |
+90 | pub(crate) struct DeletionConvergenceState {
+   |                   ------------------------ field in this struct
+91 |     /// The cellule ID being deleted.
+92 |     pub(crate) cellule_id: String,
+   |                ^^^^^^^^^^
+   |
+   = note: `DeletionConvergenceState` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: fields `version` and `shard_id` are never read
+   --> crates/cybou-node/src/storage_backend.rs:783:5
+    |
+782 | struct ShardMetadata {
+    |        ------------- fields in this struct
+783 |     version: u16,
+    |     ^^^^^^^
+784 |     shard_id: ShardId,
+    |     ^^^^^^^^
+    |
+    = note: `ShardMetadata` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: `cybou-node` (lib) generated 3 warnings
+   Compiling cybou v0.1.0 (/Users/cybou/Documents/cybou/crates/cybou-cli)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.41s
+     Running unittests src/main.rs (target/debug/deps/cybou-429d54a6842cb55e)
+
+running 3 tests
+test tests::returns_none_for_non_cybou_errors ... ok
+test tests::finds_context_wrapped_cybou_error_code ... ok
+test tests::finds_direct_cybou_error_code ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

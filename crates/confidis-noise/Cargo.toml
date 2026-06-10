@@ -1,0 +1,11 @@
+[package]
+authors.workspace = true
+name = "confidis-noise"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow = { workspace = true }
+hex = { workspace = true }
+snow = "0.10"

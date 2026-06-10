@@ -1,0 +1,57 @@
+{
+  "node": {
+    "node_id": "company-node-change-me",
+    "production_profile": false,
+    "region": "eu-fr",
+    "failure_domain": "configure-before-pilot",
+    "max_bytes": 10737418240,
+    "private_key": null,
+    "x25519_secret_key": null
+  },
+  "storage": {
+    "store_path": "/var/lib/confidis/shards",
+    "registry_path": "/var/lib/confidis/cellules.json",
+    "read_access_revocations_path": "/var/lib/confidis/read-access-revocations.json",
+    "packages_path": "/var/lib/confidis/packages.json",
+    "node_ban_list_path": "/var/lib/confidis/governance/node-ban-list.json",
+    "authority_private_key_path": null
+  },
+  "network": {
+    "listen_addr": "127.0.0.1:4433",
+    "public_endpoint": null,
+    "bootstrap_peers": [],
+    "transport_policy": "plain",
+    "node_ban_list_url": null
+  },
+  "security": {
+    "authorized_operator_pubkeys": [],
+    "compliance_token": null,
+    "security_event_webhook_urls": [],
+    "ui_token": null
+  },
+  "usage": {
+    "min_expiry_days": 1,
+    "max_expiry_days": 365,
+    "max_shards_per_owner_per_hour": 1000,
+    "max_cellules_per_owner": 100
+  },
+  "ui": {
+    "ui_allowed_origin": null,
+    "webui_path": "/usr/share/confidis/webui",
+    "content_dir": null
+  },
+  "monitoring": {
+    "metrics_enabled": true,
+    "health_check_interval_secs": 30,
+    "maintenance_job_interval_secs": 300
+  },
+  "storage_backend": {
+    "backend_type": "filesystem",
+    "filesystem_root": "/var/lib/confidis/shards",
+    "s3_bucket": null,
+    "s3_region": null,
+    "s3_access_key": null,
+    "s3_secret_key": null,
+    "s3_endpoint": null
+  }
+}

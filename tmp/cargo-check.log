@@ -1,0 +1,37 @@
+    Checking cybou-node v0.1.0 (/Users/cybou/Documents/cybou/crates/cybou-node)
+warning: method `record_wallet_operation` is never used
+  --> crates/cybou-node/src/metrics.rs:34:12
+   |
+ 7 | impl CybouMetrics {
+   | ----------------- method in this implementation
+...
+34 |     pub fn record_wallet_operation(&self, _operation: &str, _success: bo...
+   |            ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `cellule_id` is never read
+  --> crates/cybou-node/src/state.rs:92:16
+   |
+90 | pub(crate) struct DeletionConvergenceState {
+   |                   ------------------------ field in this struct
+91 |     /// The cellule ID being deleted.
+92 |     pub(crate) cellule_id: String,
+   |                ^^^^^^^^^^
+   |
+   = note: `DeletionConvergenceState` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: fields `version` and `shard_id` are never read
+   --> crates/cybou-node/src/storage_backend.rs:783:5
+    |
+782 | struct ShardMetadata {
+    |        ------------- fields in this struct
+783 |     version: u16,
+    |     ^^^^^^^
+784 |     shard_id: ShardId,
+    |     ^^^^^^^^
+    |
+    = note: `ShardMetadata` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: `cybou-node` (lib) generated 3 warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.57s

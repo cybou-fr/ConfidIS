@@ -1,0 +1,72 @@
+   Compiling cybou-node v0.1.0 (/Users/cybou/Documents/cybou/crates/cybou-node)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.19s
+     Running unittests src/lib.rs (target/debug/deps/cybou_node-bb8fef2e22c24527)
+
+running 29 tests
+test error::tests::maps_conflict_to_conflict ... ok
+test config_manager::tests::test_config_validation_invalid_node_id ... ok
+test config_manager::tests::test_config_merge ... ok
+test config_manager::tests::test_config_validation ... ok
+test error::tests::maps_expired_to_gone ... ok
+test error::tests::maps_forbidden_to_forbidden ... ok
+test error::tests::into_response_includes_machine_readable_error_code_header ... ok
+test error::tests::maps_not_found_to_not_found ... ok
+test error::tests::maps_internal_to_internal_server_error ... ok
+test error::tests::maps_unauthorized_to_unauthorized ... ok
+test config_manager::tests::test_config_manager ... ok
+test error::tests::maps_validation_to_bad_request ... ok
+test rate_limit::tests::permits_up_to_burst_requests ... ok
+test rate_limit::tests::rejects_beyond_burst ... ok
+test rate_limit::tests::resets_after_window ... ok
+test retry::tests::delay_caps_at_30s ... ok
+test retry::tests::delay_grows_exponentially ... ok
+test retry::tests::succeeds_on_first_try ... ok
+test handlers::tests::get_shard_returns_not_found_for_missing_shard ... ok
+test handlers::tests::get_shard_returns_gone_for_expired_shard ... ok
+test config::tests::production_profile_reports_missing_required_controls ... ok
+test config::tests::from_protocol_applies_static_defaults ... ok
+test config::tests::from_protocol_preserves_operator_and_static_overrides ... ok
+test state::tests::initial_jobs_include_audit_and_reload_persisted_runs ... ok
+test retry::tests::returns_none_after_exhaustion ... ok
+test config::tests::from_protocol_creates_stable_bootstrap_identity_when_config_is_empty ... ok
+test security_events::tests::security_event_exporter_writes_jsonl ... ok
+test handlers::tests::delete_shard_returns_forbidden_for_wrong_delete_signer ... ok
+test retry::tests::retries_on_transient_failure ... ok
+
+test result: ok. 29 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/api_security.rs (target/debug/deps/api_security-8cf1e545e6149788)
+
+running 15 tests
+[2m2026-05-15T21:51:39.421345Z[0m [31mERROR[0m [2mtower_http::trace::on_failure[0m[2m:[0m response failed [3mclassification[0m[2m=[0mStatus code: 507 Insufficient Storage [3mlatency[0m[2m=[0m1 ms
+test test_audit_worker_writes_signed_snapshot ... ok
+test test_peer_without_cert_accepted_as_tofu_candidate_in_bootstrap_mode ... ok
+test test_announce_peer_invalid_signature ... ok
+test test_malformed_put_requests ... ok
+test test_metrics_endpoint_returns_prometheus_text ... ok
+test test_owner_report_challenge_verifies_owner_signature_once ... ok
+test test_put_shard_rejected_when_node_over_capacity ... ok
+test test_announce_peer_admission_policy ... ok
+test test_expired_delete_requests ... ok
+test test_field_package_delivery_verifies_package_signature_and_proof_scope ... ok
+test test_read_access_grant_requires_recipient_proof_and_scope ... ok
+test test_revoked_peer_cert_rejected_when_enforcement_enabled ... ok
+test test_scoped_cellule_record_delivery_returns_only_allowed_fields_with_audit ... ok
+test test_revoked_read_access_grant_is_denied_by_node_registry ... ok
+test test_shard_delete_signature_forgery ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+
+     Running tests/workers.rs (target/debug/deps/workers-28ea24f87ccf34e7)
+
+running 1 test
+test test_maintenance_status_endpoint ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+   Doc-tests cybou_node
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

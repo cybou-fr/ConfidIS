@@ -1,0 +1,22 @@
+Package: confidis
+Version: ${VERSION}
+Architecture: ${ARCHITECTURE}
+Maintainer: CONFIDIS Team <team@confidis.eu>
+Installed-Size: ${INSTALLED_SIZE}
+Depends: libc6 (>= 2.17), libssl3 | libssl1.1, adduser
+Homepage: https://confidis.eu
+Description: CONFIDIS decentralized storage node, CLI, and web UI
+ The CONFIDIS package installs three components in one:
+ .
+  * confidis  — command-line client and node daemon entrypoint
+  * web-ui — browser dashboard bundled at /usr/share/confidis/webui
+  * docs   — node-hosted marketing/user/operator/admin web surface
+ .
+ After installation:
+   1. The package creates /etc/confidis/node.json with a unique company node id
+   2. The confidis service starts immediately on 127.0.0.1:4433
+   3. For a pilot, add TLS/reverse proxy, public endpoint and production_profile
+ .
+ The setup template binds only to 127.0.0.1:4433, so installation alone
+ starts a local node without exposing it to the Internet. The bundled web UI
+ is served from /ui/.

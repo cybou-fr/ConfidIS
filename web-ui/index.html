@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CONFIDIS</title>
+    <!--
+      Content-Security-Policy (production).
+      Notes:
+        • connect-src 'self'  — the UI is served by the same origin as the node API.
+        • frame-ancestors is intentionally omitted: it is ignored in meta tags.
+          Set it as an HTTP header in your reverse-proxy or node config:
+            Content-Security-Policy: frame-ancestors 'none'
+        • 'wasm-unsafe-eval' is required by all browsers for WASM compilation.
+        • 'unsafe-inline' in style-src covers React inline-style props; does NOT
+          weaken script security.
+    -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; font-src 'self'; worker-src 'self' blob:; object-src 'none'; form-action 'self'; base-uri 'self';" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

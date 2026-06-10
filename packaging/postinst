@@ -1,0 +1,70 @@
+#!/bin/sh
+set -e
+
+init_state_file() {
+    path="$1"
+    mode="$2"
+    body="$3"
+    if [ ! -f "$path" ]; then
+        tmp="${path}.tmp.$$"
+        printf '%s\n' "$body" > "$tmp"
+        chown confidis:confidis "$tmp"
+        chmod "$mode" "$tmp"
+        mv "$tmp" "$path"
+    fi
+}
+
+case "$1" in
+    configure)
+        # Create system user if it doesn't exist.
+        if ! id confidis >/dev/null 2>&1; then
+            adduser --system --group --no-create-home \
+                --home /var/lib/confidis --shell /usr/sbin/nologin confidis
+        fi
+
+        # Create data directories.
+        install -d -o confidis -g confidis -m 0750 /var/lib/confidis
+        install -d -o confidis -g confidis -m 0750 /var/lib/confidis/shards
+        install -d -o confidis -g confidis -m 0700 /var/lib/confidis/shards/identity
+        install -d -o confidis -g confidis -m 0750 /var/lib/confidis/shards/maintenance
+        install -d -o confidis -g confidis -m 0750 /var/lib/confidis/shards/maintenance/audit
+        install -d -o confidis -g confidis -m 0750 /var/lib/confidis/shards/security
+        install -d -o confidis -g confidis -m 0750 /var/lib/confidis/revocations
+        install -d -o confidis -g confidis -m 0750 /var/lib/confidis/renewals
+        install -d -o confidis -g confidis -m 0750 /var/lib/confidis/governance
+        init_state_file /var/lib/confidis/cellules.json 0640 "[]"
+        init_state_file /var/lib/confidis/packages.json 0640 "[]"
+        init_state_file /var/lib/confidis/read-access-revocations.json 0640 '{"version":1,"revocations":[]}'
+
+        # Create config directory; do NOT overwrite an existing config.
+        install -d -o root -g confidis -m 0750 /etc/confidis
+        if [ ! -f /etc/confidis/node.json ]; then
+            install -o root -g confidis -m 0640 \
+                /usr/share/confidis/node-default.json /etc/confidis/node.json
+            if [ -r /proc/sys/kernel/random/uuid ]; then
+                node_suffix="$(cat /proc/sys/kernel/random/uuid | tr -d '-' | cut -c1-16)"
+            else
+                node_suffix="$(date +%s)-$$"
+            fi
+            sed -i "s/company-node-change-me/company-node-${node_suffix}/" /etc/confidis/node.json
+            echo "CONFIDIS: new config written to /etc/confidis/node.json"
+            echo "CONFIDIS: generated node_id=company-node-${node_suffix}"
+            echo "CONFIDIS: node will create its local signing identity on first start"
+            echo "CONFIDIS: this is a localhost-only company node; UI: http://127.0.0.1:4433/ui/"
+            echo "CONFIDIS: configure TLS proxy, public endpoint and production_profile before Internet exposure"
+        fi
+
+        # Start immediately in localhost-only posture. This gives a useful node
+        # after `dpkg -i` without exposing a public interface.
+        if command -v systemctl >/dev/null 2>&1 && [ -d /run/systemd/system ]; then
+            systemctl daemon-reload
+            if systemctl enable --now confidis.service; then
+                echo "CONFIDIS: service enabled and started (localhost-only)"
+            else
+                echo "CONFIDIS: warning: service could not be started automatically; run 'journalctl -u confidis -e' for details" >&2
+            fi
+        fi
+        ;;
+esac
+
+exit 0

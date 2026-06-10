@@ -1,0 +1,30 @@
+[Unit]
+Description=CONFIDIS Node
+Documentation=https://confidis.eu/docs
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=confidis
+Group=confidis
+WorkingDirectory=/var/lib/confidis
+ExecStart=/usr/bin/confidis node serve /etc/confidis/node.json
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=30s
+
+# Harden the service
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/confidis /etc/confidis
+CapabilityBoundingSet=
+LockPersonality=true
+MemoryDenyWriteExecute=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+
+[Install]
+WantedBy=multi-user.target

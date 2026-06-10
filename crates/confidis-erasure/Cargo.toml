@@ -1,0 +1,12 @@
+[package]
+authors.workspace = true
+name = "confidis-erasure"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+confidis-protocol = { path = "../confidis-protocol" }
+reed-solomon-erasure.workspace = true
+

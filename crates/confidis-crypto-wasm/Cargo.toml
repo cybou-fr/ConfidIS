@@ -1,0 +1,32 @@
+[package]
+authors.workspace = true
+name = "confidis-crypto-wasm"
+description = "WebAssembly bindings for confidis-crypto — used by the in-browser wallet"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+# Build a dynamic library targeting `wasm32-unknown-unknown` plus a regular rlib
+# so the workspace `cargo build` smoke-test still compiles on native targets.
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+anyhow.workspace = true
+confidis-crypto = { path = "../confidis-crypto" }
+hex.workspace = true
+wasm-bindgen = "0.2"
+
+# `getrandom` 0.2 is the version pulled in by `rand_core` / `ed25519-dalek` /
+# `x25519-dalek` / `chacha20poly1305`. Enabling the `js` feature here forces the
+# wasm32 target to source entropy from `crypto.getRandomValues`. On native
+# targets this dependency is harmless.
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+getrandom = { version = "0.2", features = ["js"] }
+
+# Enable better error reporting for `wasm-bindgen` panics in dev builds.
+[target.'cfg(target_arch = "wasm32")'.dev-dependencies]
+wasm-bindgen-test = "0.3"
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-Oz"]

@@ -1,0 +1,10 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.06s
+     Running unittests src/lib.rs (target/debug/deps/cybou_node-bb8fef2e22c24527)
+
+running 3 tests
+test handlers::tests::get_shard_returns_gone_for_expired_shard ... ok
+test handlers::tests::get_shard_returns_not_found_for_missing_shard ... ok
+test handlers::tests::delete_shard_returns_forbidden_for_wrong_delete_signer ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.01s
+

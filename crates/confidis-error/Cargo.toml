@@ -1,0 +1,10 @@
+[package]
+authors.workspace = true
+name = "confidis-error"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+thiserror.workspace = true

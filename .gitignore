@@ -1,0 +1,13 @@
+/target/
+.DS_Store
+
+
+.local-bootstrap/
+.demo-evidence/
+.g3-lifecycle-evidence/
+.g3-public-testnet-evidence/
+.g3-private-rehearsal-evidence/
+.g2-authority-evidence/
+.g2-authority-signer-evidence/
+.g2-5-evidence/
+local-node/

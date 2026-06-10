@@ -1,0 +1,71 @@
+warning: method `record_wallet_operation` is never used
+  --> crates/cybou-node/src/metrics.rs:34:12
+   |
+ 7 | impl CybouMetrics {
+   | ----------------- method in this implementation
+...
+34 |     pub fn record_wallet_operation(&self, _operation: &str, _success: bo...
+   |            ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `cellule_id` is never read
+  --> crates/cybou-node/src/state.rs:92:16
+   |
+90 | pub(crate) struct DeletionConvergenceState {
+   |                   ------------------------ field in this struct
+91 |     /// The cellule ID being deleted.
+92 |     pub(crate) cellule_id: String,
+   |                ^^^^^^^^^^
+   |
+   = note: `DeletionConvergenceState` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: fields `version` and `shard_id` are never read
+   --> crates/cybou-node/src/storage_backend.rs:783:5
+    |
+782 | struct ShardMetadata {
+    |        ------------- fields in this struct
+783 |     version: u16,
+    |     ^^^^^^^
+784 |     shard_id: ShardId,
+    |     ^^^^^^^^
+    |
+    = note: `ShardMetadata` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: `cybou-node` (lib test) generated 3 warnings
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.23s
+     Running unittests src/lib.rs (target/debug/deps/cybou_node-bb8fef2e22c24527)
+
+running 29 tests
+test config_manager::tests::test_config_merge ... ok
+test error::tests::maps_conflict_to_conflict ... ok
+test config_manager::tests::test_config_validation_invalid_node_id ... ok
+test config_manager::tests::test_config_validation ... ok
+test error::tests::maps_expired_to_gone ... ok
+test error::tests::maps_forbidden_to_forbidden ... ok
+test error::tests::into_response_includes_machine_readable_error_code_header ... ok
+test error::tests::maps_internal_to_internal_server_error ... ok
+test error::tests::maps_not_found_to_not_found ... ok
+test error::tests::maps_unauthorized_to_unauthorized ... ok
+test config_manager::tests::test_config_manager ... ok
+test error::tests::maps_validation_to_bad_request ... ok
+test rate_limit::tests::rejects_beyond_burst ... ok
+test handlers::tests::get_shard_returns_gone_for_expired_shard ... ok
+test rate_limit::tests::permits_up_to_burst_requests ... ok
+test handlers::tests::get_shard_returns_not_found_for_missing_shard ... ok
+test rate_limit::tests::resets_after_window ... ok
+test retry::tests::delay_caps_at_30s ... ok
+test retry::tests::delay_grows_exponentially ... ok
+test config::tests::from_protocol_preserves_operator_and_static_overrides ... ok
+test retry::tests::succeeds_on_first_try ... ok
+test config::tests::production_profile_reports_missing_required_controls ... ok
+test config::tests::from_protocol_applies_static_defaults ... ok
+test config::tests::from_protocol_creates_stable_bootstrap_identity_when_config_is_empty ... ok
+test handlers::tests::delete_shard_returns_forbidden_for_wrong_delete_signer ... ok
+test state::tests::initial_jobs_include_audit_and_reload_persisted_runs ... ok
+test security_events::tests::security_event_exporter_writes_jsonl ... ok
+test retry::tests::returns_none_after_exhaustion ... ok
+test retry::tests::retries_on_transient_failure ... ok
+
+test result: ok. 29 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

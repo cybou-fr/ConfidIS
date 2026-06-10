@@ -1,0 +1,39 @@
+[package]
+authors.workspace = true
+name = "confidis-node"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+async-trait = "0.1"
+axum.workspace = true
+base64.workspace = true
+blake3.workspace = true
+chrono.workspace = true
+confidis-crypto = { path = "../confidis-crypto" }
+confidis-error = { path = "../confidis-error" }
+confidis-noise = { path = "../confidis-noise" }
+confidis-protocol = { path = "../confidis-protocol" }
+ed25519-dalek.workspace = true
+hex.workspace = true
+hostname = "0.3"
+futures = "0.3"
+libp2p = { version = "0.56", default-features = false, features = ["tokio", "tcp", "dns", "noise", "yamux", "kad", "identify", "relay", "macros", "ed25519"] }
+rand_core.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+tower-http.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+reqwest = { workspace = true, features = ["blocking"] }
+uuid.workspace = true
+
+[features]
+default = []
+
+[dev-dependencies]
+reqwest.workspace = true
+tempfile = "3.10"

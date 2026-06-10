@@ -1,0 +1,45 @@
+[workspace]
+members = [
+    "crates/confidis-error",
+    "crates/confidis-crypto",
+    "crates/confidis-crypto-wasm",
+    "crates/confidis-erasure",
+    "crates/confidis-noise",
+    "crates/confidis-node",
+    "crates/confidis-placement",
+    "crates/confidis-protocol",
+    "crates/confidis-cli",
+]
+resolver = "2"
+
+[workspace.package]
+authors = ["Stanislav SAVELIEV <ioustamora@gmail.com>"]
+edition = "2024"
+license = "Apache-2.0"
+version = "0.1.0"
+
+[workspace.dependencies]
+anyhow = "1.0"
+argon2 = "0.5"
+axum = "0.8"
+base64 = "0.22"
+bip39 = { version = "2", features = ["rand_core"] }
+blake3 = "1.8"
+chacha20poly1305 = "0.10"
+chrono = { version = "0.4", features = ["serde"] }
+clap = { version = "4.5", features = ["derive"] }
+ed25519-dalek = { version = "2.2", features = ["rand_core", "serde"] }
+x25519-dalek = { version = "2.0", features = ["static_secrets"] }
+hex = "0.4"
+rand_core = { version = "0.6", features = ["getrandom"] }
+reed-solomon-erasure = { version = "6.0", default-features = false, features = ["simd-accel"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0"
+tokio = { version = "1.48", features = ["macros", "rt-multi-thread", "signal"] }
+tower-http = { version = "0.6", features = ["cors", "trace", "fs"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1.18", features = ["v4", "serde"] }
+lettre = { version = "0.11", features = ["smtp-transport", "builder", "native-tls"] }

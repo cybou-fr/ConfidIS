@@ -1,0 +1,36 @@
+[package]
+authors.workspace = true
+name = "confidis"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[[bin]]
+name = "confidis"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+base64.workspace = true
+bip39.workspace = true
+blake3.workspace = true
+chrono.workspace = true
+clap.workspace = true
+confidis-crypto = { path = "../confidis-crypto" }
+confidis-error = { path = "../confidis-error" }
+confidis-erasure = { path = "../confidis-erasure" }
+confidis-node = { path = "../confidis-node" }
+confidis-placement = { path = "../confidis-placement" }
+confidis-protocol = { path = "../confidis-protocol" }
+ed25519-dalek.workspace = true
+hex.workspace = true
+rand_core.workspace = true
+reqwest.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+uuid.workspace = true
+[features]
+default = []

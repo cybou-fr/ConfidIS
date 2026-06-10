@@ -1,0 +1,13 @@
+[package]
+authors.workspace = true
+name = "confidis-placement"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+blake3.workspace = true
+chrono.workspace = true
+confidis-protocol = { path = "../confidis-protocol" }
+

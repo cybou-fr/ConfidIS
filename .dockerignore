@@ -1,0 +1,9 @@
+.git
+target
+.demo-evidence
+.g2-authority-evidence
+.g2-authority-signer-evidence
+.g2-5-evidence
+local-node
+node_modules
+web-ui/node_modules

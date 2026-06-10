@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    purge)
+        # Remove data only on purge (not remove), so operator keeps shards on plain uninstall.
+        rm -rf /var/lib/confidis /etc/confidis
+        if id confidis >/dev/null 2>&1; then
+            deluser --system confidis 2>/dev/null || true
+        fi
+        ;;
+esac
+
+exit 0

@@ -1,0 +1,30 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running tests/api_security.rs (target/debug/deps/api_security-8cf1e545e6149788)
+
+running 15 tests
+test test_audit_worker_writes_signed_snapshot ... ok
+test test_metrics_endpoint_returns_prometheus_text ... ok
+test test_peer_without_cert_accepted_as_tofu_candidate_in_bootstrap_mode ... ok
+test test_malformed_put_requests ... ok
+test test_announce_peer_invalid_signature ... ok
+[2m2026-05-15T21:51:16.684576Z[0m [31mERROR[0m [2mtower_http::trace::on_failure[0m[2m:[0m response failed [3mclassification[0m[2m=[0mStatus code: 507 Insufficient Storage [3mlatency[0m[2m=[0m1 ms
+test test_announce_peer_admission_policy ... ok
+test test_owner_report_challenge_verifies_owner_signature_once ... ok
+test test_put_shard_rejected_when_node_over_capacity ... ok
+test test_expired_delete_requests ... ok
+test test_field_package_delivery_verifies_package_signature_and_proof_scope ... ok
+test test_revoked_read_access_grant_is_denied_by_node_registry ... ok
+test test_read_access_grant_requires_recipient_proof_and_scope ... ok
+test test_revoked_peer_cert_rejected_when_enforcement_enabled ... ok
+test test_scoped_cellule_record_delivery_returns_only_allowed_fields_with_audit ... ok
+test test_shard_delete_signature_forgery ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+
+     Running tests/workers.rs (target/debug/deps/workers-28ea24f87ccf34e7)
+
+running 1 test
+test test_maintenance_status_endpoint ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+

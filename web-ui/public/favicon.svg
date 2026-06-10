@@ -1,0 +1,47 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="plasmaGradient" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0AA6C7"/>
+      <stop offset="50%" stop-color="#45F3FF"/>
+      <stop offset="100%" stop-color="#E6FCFF"/>
+    </linearGradient>
+
+    <linearGradient id="armorGradient" x1="128" y1="0" x2="128" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2C2C2E"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+
+    <linearGradient id="rimGradient" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#45F3FF" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <filter id="hologramGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" operator="over"/>
+    </filter>
+  </defs>
+
+  <circle cx="128" cy="128" r="80" fill="url(#plasmaGradient)" filter="url(#hologramGlow)" opacity="0.3"/>
+
+  <g fill="url(#armorGradient)">
+    <path d="M128 20L210 50V90L128 110L46 90V50L128 20Z" stroke="url(#rimGradient)" stroke-width="4"/>
+    <path d="M46 100V130C46 170 70 200 120 230L124 232L124 120L46 100Z" stroke="url(#rimGradient)" stroke-width="4"/>
+    <path d="M210 100V130C210 170 186 200 136 230L132 232L132 120L210 100Z" stroke="url(#rimGradient)" stroke-width="4"/>
+  </g>
+
+  <path d="M128 20V232" stroke="#45F3FF" stroke-width="3" stroke-dasharray="8 8" opacity="0.6"/>
+  <path d="M46 95H210" stroke="#45F3FF" stroke-width="3" stroke-dasharray="8 8" opacity="0.6"/>
+
+  <circle cx="128" cy="115" r="22" fill="url(#plasmaGradient)"/>
+  <circle cx="128" cy="115" r="30" stroke="white" stroke-width="3" stroke-dasharray="10 5" opacity="0.9"/>
+
+  <circle cx="128" cy="115" r="50" stroke="#45F3FF" stroke-width="2" stroke-opacity="0.6" stroke-dasharray="5 15"/>
+  <path d="M128 55L128 70" stroke="#45F3FF" stroke-width="4"/>
+  <path d="M128 175L128 160" stroke="#45F3FF" stroke-width="4"/>
+  <path d="M68 115L83 115" stroke="#45F3FF" stroke-width="4"/>
+  <path d="M188 115L173 115" stroke="#45F3FF" stroke-width="4"/>
+
+  <path d="M128 24L190 48V80L128 95L66 80V48L128 24Z" fill="white" fill-opacity="0.2"/>
+
+</svg>
