@@ -51,7 +51,9 @@ run cargo fmt --all -- --check
 run cargo clippy --all-targets --all-features -- -D warnings
 run cargo test --workspace
 run ./scripts/check-packaging.sh
-run ./scripts/backup-restore-exercise.sh
+# Full Cellule put/get is disabled in the current CLI (cfg(any())).
+# Do not run an obsolete demo or count an unavailable upload/restore test as PASS.
+echo "NOTE: end-to-end Cellule upload/restore NOT VERIFIED (put is disabled in current CLI)"
 
 if [[ "${CONFIDIS_SKIP_AUDIT:-0}" != "1" ]]; then
     run cargo audit
@@ -81,4 +83,5 @@ else
 fi
 
 echo ""
-echo "✓ CONFIDIS quality gate passed"
+echo "✓ CONFIDIS available source/test/static-packaging checks completed"
+echo "NOTE: Debian install and end-to-end backup/restore are not release-qualified"
