@@ -2,6 +2,8 @@
 
 # ConfidIS OS
 
+**🇫🇷 [Étude de cas — Architecture distribuée et stockage chiffré](docs/CASE_STUDY_FR.md)** — Modules Rust, choix de conception et limites.
+
 **ConfidIS OS is an open-source, Debian-based appliance for creating temporary, encrypted personal data cells, trusted node federation, and operational audit evidence.**
 
 *Documentation disponible en français dans [README_FR.md](README_FR.md).*
