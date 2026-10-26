@@ -4,7 +4,7 @@
 
 **🇫🇷 [Étude de cas — Architecture distribuée et stockage chiffré](docs/CASE_STUDY_FR.md)** — Modules Rust, choix de conception et limites. · [Portfolio de l'architecte](https://github.com/cybou-fr)
 
-> **Statut transparent :** projet personnel de R&D en développement. Les propriétés de sécurité et de résilience sont des objectifs de conception à qualifier, et non des certifications ou des résultats terrain.
+> **Status:** personal R&D project in development. Security and resilience characteristics remain design goals to validate, not certifications or demonstrated field outcomes.
 
 **ConfidIS OS is an open-source, Debian-based appliance for creating temporary, encrypted personal data cells, trusted node federation, and operational audit evidence.**
 
@@ -17,7 +17,7 @@ ConfidIS OS allows an organization to deploy its own storage node on its infrast
 ConfidIS OS is not a general-purpose file cloud, a permanent backup system, or a public storage marketplace. It serves a specific purpose: enabling organizations to handle sensitive personal data without unnecessarily becoming the permanent holder of that data in plaintext.
 
 *   **Temporary, Encrypted Data Cells:** Data is encrypted client-side with a key held solely by the owner, shredded using Reed-Solomon erasure coding, and distributed across independent storage nodes.
-*   **Zero-Knowledge:** Le modèle prévoit que les nœuds ne conservent que des fragments chiffrés et des empreintes BLAKE3, sans accès voulu aux clés de déchiffrement. L'absence effective de fuite ou d'accès en clair nécessite une vérification de bout en bout, y compris des métadonnées et du cycle de vie des clés.
+*   **Zero-Knowledge:** The design calls for nodes to store encrypted shards and BLAKE3 hashes without intended access to plaintext or decryption keys. Effective confidentiality still requires end-to-end verification, including metadata and key lifecycle.
 *   **Trusted Node Federation:** Federation is built on explicit agreements between trusted nodes. Each node configures its partners, endpoints, and mutual usage limits.
 *   **Operational Evidence:** The system produces audit trails, signed receipts for storage and deletion, and readiness reports for compliance auditing.
 
